@@ -1,0 +1,21 @@
+{% extends 'lrt/base.html' %}
+
+{% block content %}
+
+    <button name='add_category'>
+        <a href="{% url 'lrt:new_category' %}">Create New Category</a>
+    </button>
+
+    <p>All Categories:</p>
+
+    <ul>
+        {% for category in categories %}
+            <li>
+                <a href="{% url 'lrt:category' category.id %}">{{category}}</a>
+            </li>
+        {% empty %}
+            <p>You have not added any categories yet.</p>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

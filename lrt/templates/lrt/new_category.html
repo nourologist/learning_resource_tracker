@@ -1,0 +1,13 @@
+{% extends 'lrt/base.html' %}
+
+{% block content %}
+
+    <p>Add a new category:</p>
+
+    <form action ="{% url 'lrt:new_category' %}" method = 'post'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button name='submit'>Add Category</button>
+    </form>
+
+{% endblock content %}

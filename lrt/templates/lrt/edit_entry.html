@@ -1,0 +1,13 @@
+{% extends 'lrt/base.html' %}
+
+{% block content %}
+
+    <p>Edit Entry:</p>
+
+    <form action="{% url 'lrt:edit_entry' entry.id %}" method='post'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button name='submit'>Save changes</button>
+    </form>
+
+{% endblock content %}

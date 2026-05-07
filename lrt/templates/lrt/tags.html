@@ -1,0 +1,17 @@
+{% extends 'lrt/base.html' %}
+
+{% block content %}
+
+    <p>All Tags:</p>
+
+    <ul>
+        {% for tag in tags %}
+            <li>
+                <a href="{% url 'lrt:tag' tag.id %}">{{tag}}</a>
+            </li>
+        {% empty %}
+            <p>You have not added any tags yet!</p>
+        {% endfor %}
+    </ul>
+    
+{% endblock content%}

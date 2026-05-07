@@ -1,0 +1,12 @@
+{% extends 'lrt/base.html' %}
+
+{% block content %}
+
+    <form method = 'post' action = "{% url 'users:register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name='submit'>Sign up</button>
+        <input type = 'hidden' name = 'next' value = "{% url 'lrt:home'%}">
+    </form>
+
+{% endblock content %}

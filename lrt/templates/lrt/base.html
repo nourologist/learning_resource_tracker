@@ -1,0 +1,19 @@
+<p>
+    <a href="{% url 'lrt:home' %}" >Learning Resource Tracker</a> > 
+    {% if user.is_authenticated %}
+        Hello, {{ user.username }}! >
+        <a href="{% url 'users:logout' %}">Log Out</a> >
+        {# <a href="{% url 'users:password_change' %}">Change Password</a> > #}
+        <a href="{% url 'lrt:categories' %}">Categories</a> > 
+        <a href="{% url 'lrt:tags' %}">Tags</a> >
+        <a href="{% url 'lrt:entries' %}">Entries</a> >
+        <button>
+            <a href="{% url 'lrt:new_entry' %}">New Entry</a>
+        </button>
+    {% else %}
+        <a href="{% url 'users:register' %}">Sign up</a> >
+        <a href="{% url 'users:login' %}">Log in</a>
+    {% endif %}
+</p>
+
+{% block content %} {% endblock content %}

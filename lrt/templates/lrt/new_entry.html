@@ -1,0 +1,15 @@
+{% extends 'lrt/base.html' %}
+
+{% block content %}
+
+    <p>Add a new entry below:</p>
+
+    <form action="{% url 'lrt:new_entry' %}" method='post'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button name='submit'>
+            Add Entry
+        </button>
+    </form>
+
+{% endblock content %}

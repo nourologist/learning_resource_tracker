@@ -1,0 +1,22 @@
+{% extends 'lrt/base.html'%}
+
+{% block content %}
+
+    <button name=new_entry>
+        <a href="{% url 'lrt:new_entry' %}">New Entry</a>
+    </button>
+
+    <p>All Entries:</p>
+
+    <ul>
+        {% for entry in entries %}
+            <li>
+                {{entry}} 
+                <a href="{% url 'lrt:edit_entry' entry.id %}">Edit Entry</a>
+            </li>
+        {% empty %}
+            <p>You have not added any entries yet!</p>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}

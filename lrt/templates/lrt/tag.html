@@ -1,0 +1,19 @@
+{% extends 'lrt/base.html' %}
+
+{% block content %}
+
+    <p>Tag: {{tag}}</p>
+
+    <p>Entries:</p>
+    <ul>
+        {% for entry in entries %}
+            <li>
+                {{entry.text | linebreaks}}
+                <a href="{% url 'lrt:edit_entry' entry.id %}">Edit Entry</a>
+            </li>
+        {% empty %}
+            <p>You have no entries associated with this tag.</p>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
